@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Just a really rough form, feel free to edit the frontend yourself :) -->
+<!-- https://stackoverflow.com/questions/45447730 (updated to the latest version for security)-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<form action="/submit_info" method="post">
+    <div class="first-section">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="authors">Authors:</label><br>
+        <input type="text" id="authors" name="authors" required><br>
+        <label for="journal">Journal:</label><br>
+        <input type="text" id="journal" name="journal" required><br>
+        <label for="doi">doi:</label><br>
+        <input type="text" id="doi" name="doi" required><br>
+        <label for="year">year:</label><br>
+        <input type="number" id="year" name="year" min="1000" max="9999" required><br><br>
+        <input type="submit" value="Proceed to 1st Pass">
+    </div>
+</form>
+{% endblock %}

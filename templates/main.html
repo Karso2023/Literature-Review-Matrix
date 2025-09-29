@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Just a really rough form, feel free to edit the frontend yourself :) -->
+
+<label>
+  <input type="checkbox" id="view-all"> View All Sections
+</label>
+
+<form action="/submit_info" method="post">
+
+  <!-- First Section -->
+  <div class="section" id="first-section">
+    <h2>Paper Information</h2>
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required><br>
+
+    <label for="authors">Authors:</label><br>
+    <input type="text" id="authors" name="authors" required><br>
+
+    <label for="journal">Journal:</label><br>
+    <input type="text" id="journal" name="journal" required><br>
+
+    <label for="doi">DOI:</label><br>
+    <input type="text" id="doi" name="doi" required><br>
+
+    <label for="year">Year:</label><br>
+    <input type="number" id="year" name="year" min="1000" max="9999" required><br><br>
+
+    <button type="button" class="next-btn" data-next="#first-pass">Proceed to 1st Pass</button>
+  </div>
+
+  <!-- First Pass -->
+  <div class="section" id="first-pass" style="display:none;">
+    <h2>1st Pass (5 minutes)</h2>
+    <label>Category:</label><br>
+    <input type="text" name="category"><br>
+
+    <label>Context:</label><br>
+    <input type="text" name="context"><br>
+
+    <label>Correctness:</label><br>
+    <input type="text" name="correctness"><br>
+
+    <label>Contributions:</label><br>
+    <input type="text" name="contributions"><br>
+
+    <label>Clarity:</label><br>
+    <input type="text" name="clarity"><br><br>
+
+    <button type="button" class="next-btn" data-next="#second-pass">Proceed to 2nd Pass</button>
+  </div>
+
+  <!-- Second Pass -->
+  <div class="section" id="second-pass" style="display:none;">
+    <h2>2nd Pass (1 hour)</h2>
+    <h3>What does it do?</h3>
+    <label>Rationale:</label><br>
+    <input type="text" name="rationale"><br>
+
+    <label>Aims:</label><br>
+    <input type="text" name="aims"><br>
+
+    <label>Hypothesis:</label><br>
+    <input type="text" name="hypothesis"><br>
+
+    <h3>How does it do it?</h3>
+    <label>Participants:</label><br>
+    <input type="text" name="participants"><br>
+
+    <label>Method:</label><br>
+    <input type="text" name="method"><br>
+
+    <h3>What did it find?</h3>
+    <label>Findings:</label><br>
+    <input type="text" name="findings"><br>
+
+    <label>Implications:</label><br>
+    <input type="text" name="implications"><br>
+
+    <label>Falsifiable:</label><br>
+    <input type="text" name="falsifiable"><br>
+
+    <label>Limitations:</label><br>
+    <input type="text" name="limitations"><br><br>
+
+    <button type="button" class="next-btn" data-next="#third-pass">Proceed to 3rd Pass</button>
+  </div>
+
+  <!-- Third Pass -->
+  <div class="section" id="third-pass" style="display:none;">
+    <h2>3rd Pass (2+ hours)</h2>
+    <h3>Weaknesses</h3>
+    <label>Pinpoint Implicit Assumptions:</label><br>
+    <input type="text" name="assumptions"><br>
+
+    <label>Experimental / Analytical Errors:</label><br>
+    <input type="text" name="errors"><br>
+
+    <label>Missing Citations:</label><br>
+    <input type="text" name="missing_citations"><br>
+
+    <h3>Strengths</h3>
+    <label>Presentation Technique:</label><br>
+    <input type="text" name="presentation"><br>
+
+    <label>Support for Conclusion:</label><br>
+    <input type="text" name="support"><br>
+
+    <label>Internal Efficacy:</label><br>
+    <input type="text" name="efficacy"><br><br>
+
+    <button type="submit">Submit Review Matrix</button>
+  </div>
+
+</form>
+{% endblock %}

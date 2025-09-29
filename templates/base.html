@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Literature Review Matrix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">Review Matrix</div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('main') }}">Add</a></li>
+                <li><a href="{{ url_for('saved_matrix') }}">Saved Matrix</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+        <!-- https://stackoverflow.com/questions/45447730 (updated to the latest version for security)-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/form-behaviour.js') }}"></script>
+    </main>
 </body>
 </html>

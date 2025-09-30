@@ -104,6 +104,11 @@ label[for="view-all"] {
   display: block;
 }
 
+.input-error {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }

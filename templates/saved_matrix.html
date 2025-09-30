@@ -1,1 +1,70 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="matrix-container">
+  {% for matrix in matrices %}
+    <div class="matrix-card">
+      <div class="matrix-preview">
+        <h3>{{ matrix["Basic info"]["Title"] }} ({{ matrix["Basic info"]["Year"] }})</h3>
+        <p><strong>Authors:</strong> {{ matrix["Basic info"]["Authors"] }}</p>
+        <p><strong>Journal:</strong> {{ matrix["Basic info"]["Journal"] }}</p>
+        <p><strong>DOI:</strong> {{ matrix["Basic info"]["doi"] }}</p>
+        <div class="toggle-hint">Click to view full details ▼</div>
+      </div>
+
+      <div class="matrix-details">
+        <h4>First Pass</h4>
+        <p><strong>Category:</strong> {{ matrix["First_pass"]["Category"] }}</p>
+        <p><strong>Context:</strong> {{ matrix["First_pass"]["Context"] }}</p>
+        <p><strong>Correctness:</strong> {{ matrix["First_pass"]["Correctness"] }}</p>
+        <p><strong>Contributions:</strong> {{ matrix["First_pass"]["Contributions"] }}</p>
+        <p><strong>Clarity:</strong> {{ matrix["First_pass"]["Clarity"] }}</p>
+
+        <h4>Second Pass</h4>
+        <p><strong>Rationale:</strong> {{ matrix["Second_pass"]["Rationale"] }}</p>
+        <p><strong>Aims:</strong> {{ matrix["Second_pass"]["Aims"] }}</p>
+        <p><strong>Hypothesis:</strong> {{ matrix["Second_pass"]["Hypothesis"] }}</p>
+        <p><strong>Participants:</strong> {{ matrix["Second_pass"]["Participants"] }}</p>
+        <p><strong>Method:</strong> {{ matrix["Second_pass"]["Method"] }}</p>
+        <p><strong>Findings:</strong> {{ matrix["Second_pass"]["Findings"] }}</p>
+        <p><strong>Implications:</strong> {{ matrix["Second_pass"]["Implications"] }}</p>
+        <p><strong>Falsifiable:</strong> {{ matrix["Second_pass"]["Falsifiable"] }}</p>
+        <p><strong>Limitations:</strong> {{ matrix["Second_pass"]["Limitations"] }}</p>
+
+        <h4>Third Pass</h4>
+        <p><strong>Assumptions:</strong> {{ matrix["Third_pass"]["Assumptions"] }}</p>
+        <p><strong>Errors:</strong> {{ matrix["Third_pass"]["Errors"] }}</p>
+        <p><strong>Missing Citations:</strong> {{ matrix["Third_pass"]["Missing Citations"] }}</p>
+        <p><strong>Presentation:</strong> {{ matrix["Third_pass"]["Presentation"] }}</p>
+        <p><strong>Support:</strong> {{ matrix["Third_pass"]["Support"] }}</p>
+        <p><strong>Efficacy:</strong> {{ matrix["Third_pass"]["Efficacy"] }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+  document.querySelectorAll('.matrix-card').forEach(card => {
+    card.addEventListener('click', function () {
+      document.querySelectorAll('.matrix-card').forEach(c => {
+        if (c !== this) {
+          c.classList.remove('active');
+          c.querySelector('.toggle-hint').textContent = "Click to view full details ▼";
+        }
+      });
+
+      this.classList.toggle('active');
+
+      const hint = this.querySelector('.toggle-hint');
+      if (this.classList.contains('active')) {
+        hint.textContent = "Click to hide details ▲";
+      } else {
+        hint.textContent = "Click to view full details ▼";
+      }
+    });
+  });
+</script>
+
+
+{% endblock %}

@@ -36,18 +36,20 @@
     <input type="text" name="category"><br>
 
     <label>Context:</label><br>
-    <input type="text" name="context"><br>
+    <textarea name="context" rows="3" cols="50"></textarea><br>
 
     <label>Correctness:</label><br>
-    <input type="text" name="correctness"><br>
+    <textarea name="correctness" rows="3" cols="50"></textarea><br>
 
     <label>Contributions:</label><br>
-    <input type="text" name="contributions"><br>
+    <textarea name="contributions" rows="3" cols="50"></textarea><br>
 
     <label>Clarity:</label><br>
-    <input type="text" name="clarity"><br><br>
+    <textarea name="clarity" rows="3" cols="50"></textarea><br><br>
 
-    <button type="button" class="next-btn" data-next="#second-pass">Proceed to 2nd Pass</button>
+    <p>Proceed to 2nd pass?</p>
+    <button type="button" class="useful-btn" data-response="yes" data-next="#second-pass">Yes</button>
+    <button type="button" class="useful-btn" data-response="no">No</button>
   </div>
 
   <!-- Second Pass -->
@@ -55,35 +57,37 @@
     <h2>2nd Pass (1 hour)</h2>
     <h3>What does it do?</h3>
     <label>Rationale:</label><br>
-    <input type="text" name="rationale"><br>
+    <textarea name="rationale" rows="3" cols="50"></textarea><br>
 
     <label>Aims:</label><br>
-    <input type="text" name="aims"><br>
+    <textarea name="aims" rows="3" cols="50"></textarea><br>
 
     <label>Hypothesis:</label><br>
-    <input type="text" name="hypothesis"><br>
+    <textarea name="hypothesis" rows="3" cols="50"></textarea><br>
 
     <h3>How does it do it?</h3>
     <label>Participants:</label><br>
-    <input type="text" name="participants"><br>
+    <textarea name="participants" rows="3" cols="50"></textarea><br>
 
     <label>Method:</label><br>
-    <input type="text" name="method"><br>
+    <textarea name="method" rows="3" cols="50"></textarea><br>
 
     <h3>What did it find?</h3>
     <label>Findings:</label><br>
-    <input type="text" name="findings"><br>
+    <textarea name="findings" rows="3" cols="50"></textarea><br>
 
     <label>Implications:</label><br>
-    <input type="text" name="implications"><br>
+    <textarea name="implications" rows="3" cols="50"></textarea><br>
 
     <label>Falsifiable:</label><br>
-    <input type="text" name="falsifiable"><br>
+    <textarea name="falsifiable" rows="3" cols="50"></textarea><br>
 
     <label>Limitations:</label><br>
-    <input type="text" name="limitations"><br><br>
+    <textarea name="limitations" rows="3" cols="50"></textarea><br><br>
 
-    <button type="button" class="next-btn" data-next="#third-pass">Proceed to 3rd Pass</button>
+    <p>Proceed to 3rd pass?</p>
+    <button type="button" class="useful-btn" data-response="yes" data-next="#third-pass">Yes</button>
+    <button type="button" class="useful-btn" data-response="no">No</button>
   </div>
 
   <!-- Third Pass -->
@@ -91,23 +95,23 @@
     <h2>3rd Pass (2+ hours)</h2>
     <h3>Weaknesses</h3>
     <label>Pinpoint Implicit Assumptions:</label><br>
-    <input type="text" name="assumptions"><br>
+    <textarea name="assumptions" rows="3" cols="50"></textarea><br>
 
     <label>Experimental / Analytical Errors:</label><br>
-    <input type="text" name="errors"><br>
+    <textarea name="errors" rows="3" cols="50"></textarea><br>
 
     <label>Missing Citations:</label><br>
-    <input type="text" name="missing_citations"><br>
+    <textarea name="missing_citations" rows="3" cols="50"></textarea><br>
 
     <h3>Strengths</h3>
     <label>Presentation Technique:</label><br>
-    <input type="text" name="presentation"><br>
+    <textarea name="presentation" rows="3" cols="50"></textarea><br>
 
     <label>Support for Conclusion:</label><br>
-    <input type="text" name="support"><br>
+    <textarea name="support" rows="3" cols="50"></textarea><br>
 
     <label>Internal Efficacy:</label><br>
-    <input type="text" name="efficacy"><br><br>
+    <textarea name="efficacy" rows="3" cols="50"></textarea><br><br>
 
     <button type="submit">Submit Review Matrix</button>
   </div>

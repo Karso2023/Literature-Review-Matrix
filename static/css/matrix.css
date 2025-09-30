@@ -1,0 +1,52 @@
+.matrix-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.matrix-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.matrix-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.matrix-preview h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.matrix-preview p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.toggle-hint {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 8px;
+}
+
+/* Hide details by default */
+.matrix-details {
+  display: none;
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Show details when card is active */
+.matrix-card.active .matrix-details {
+  display: block;
+}

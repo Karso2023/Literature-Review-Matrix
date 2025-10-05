@@ -29,9 +29,16 @@ A web-based literature review matrix using the 3 pass approach
    ```
    
 4. **Run**
+   Option 1:
    ```bash
    python server.py
    ```
+
+   Option 2:
+   ```bash
+   move the bat file to shortcut and double click it
+   ```
+   
    You should now be able to run the app on localhost:5000 !
   
 

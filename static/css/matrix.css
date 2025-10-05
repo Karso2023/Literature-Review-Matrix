@@ -18,7 +18,8 @@
 
 .delete-btn {
   position: absolute;
-  top: 8px;
+  transform: translateY(-20px);
+  top: 4px;
   right: 10px;
   background-color: transparent;
   border: none;

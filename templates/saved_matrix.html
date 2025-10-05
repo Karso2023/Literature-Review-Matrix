@@ -5,66 +5,64 @@
 <div class="matrix-container">
   {% for matrix in matrices %}
     <div class="matrix-card">
-      <div class="matrix-preview">
-        <h3>{{ matrix["Basic info"]["Title"] }} ({{ matrix["Basic info"]["Year"] }})</h3>
-        <p><strong>Authors:</strong> {{ matrix["Basic info"]["Authors"] }}</p>
-        <p><strong>Journal:</strong> {{ matrix["Basic info"]["Journal"] }}</p>
-        <p><strong>DOI:</strong> {{ matrix["Basic info"]["doi"] }}</p>
+      <button class="delete-btn" data-id="{{ matrix.id }}">Delete</button>
+
+      <div class="matrix-preview" data-details="{{ loop.index0 }}">
+        <h3>{{ matrix.data["Basic info"]["Title"] }} ({{ matrix.data["Basic info"]["Year"] }})</h3>
+        <p><strong>Authors:</strong> {{ matrix.data["Basic info"]["Authors"] }}</p>
+        <p><strong>Journal:</strong> {{ matrix.data["Basic info"]["Journal"] }}</p>
+        <p><strong>DOI:</strong> {{ matrix.data["Basic info"]["doi"] }}</p>
         <div class="toggle-hint">Click to view full details ▼</div>
       </div>
 
-      <div class="matrix-details">
-        <h4>First Pass</h4>
-        <p><strong>Category:</strong> {{ matrix["First_pass"]["Category"] }}</p>
-        <p><strong>Context:</strong> {{ matrix["First_pass"]["Context"] }}</p>
-        <p><strong>Correctness:</strong> {{ matrix["First_pass"]["Correctness"] }}</p>
-        <p><strong>Contributions:</strong> {{ matrix["First_pass"]["Contributions"] }}</p>
-        <p><strong>Clarity:</strong> {{ matrix["First_pass"]["Clarity"] }}</p>
+      <div class="matrix-details" id="details-{{ loop.index0 }}" style="display:none;">
+        <section class="pass-section">
+          <h2>📘 First Pass</h2>
+          <ul>
+            <li><strong>Category:</strong> {{ matrix.data["First_pass"]["Category"] }}</li>
+            <li><strong>Context:</strong> {{ matrix.data["First_pass"]["Context"] }}</li>
+            <li><strong>Correctness:</strong> {{ matrix.data["First_pass"]["Correctness"] }}</li>
+            <li><strong>Contributions:</strong> {{ matrix.data["First_pass"]["Contributions"] }}</li>
+            <li><strong>Clarity:</strong> {{ matrix.data["First_pass"]["Clarity"] }}</li>
+          </ul>
+        </section>
 
-        <h4>Second Pass</h4>
-        <p><strong>Rationale:</strong> {{ matrix["Second_pass"]["Rationale"] }}</p>
-        <p><strong>Aims:</strong> {{ matrix["Second_pass"]["Aims"] }}</p>
-        <p><strong>Hypothesis:</strong> {{ matrix["Second_pass"]["Hypothesis"] }}</p>
-        <p><strong>Participants:</strong> {{ matrix["Second_pass"]["Participants"] }}</p>
-        <p><strong>Method:</strong> {{ matrix["Second_pass"]["Method"] }}</p>
-        <p><strong>Findings:</strong> {{ matrix["Second_pass"]["Findings"] }}</p>
-        <p><strong>Implications:</strong> {{ matrix["Second_pass"]["Implications"] }}</p>
-        <p><strong>Falsifiable:</strong> {{ matrix["Second_pass"]["Falsifiable"] }}</p>
-        <p><strong>Limitations:</strong> {{ matrix["Second_pass"]["Limitations"] }}</p>
+        <section class="pass-section">
+          <h2>📗 Second Pass</h2>
+          <ul>
+            <li><strong>Rationale:</strong> {{ matrix.data["Second_pass"]["Rationale"] }}</li>
+            <li><strong>Aims:</strong> {{ matrix.data["Second_pass"]["Aims"] }}</li>
+            <li><strong>Hypothesis:</strong> {{ matrix.data["Second_pass"]["Hypothesis"] }}</li>
+            <li><strong>Participants:</strong> {{ matrix.data["Second_pass"]["Participants"] }}</li>
+            <li><strong>Method:</strong> {{ matrix.data["Second_pass"]["Method"] }}</li>
+            <li><strong>Findings:</strong> {{ matrix.data["Second_pass"]["Findings"] }}</li>
+            <li><strong>Implications:</strong> {{ matrix.data["Second_pass"]["Implications"] }}</li>
+            <li><strong>Falsifiable:</strong> {{ matrix.data["Second_pass"]["Falsifiable"] }}</li>
+            <li><strong>Limitations:</strong> {{ matrix.data["Second_pass"]["Limitations"] }}</li>
+          </ul>
+        </section>
 
-        <h4>Third Pass</h4>
-        <p><strong>Assumptions:</strong> {{ matrix["Third_pass"]["Assumptions"] }}</p>
-        <p><strong>Errors:</strong> {{ matrix["Third_pass"]["Errors"] }}</p>
-        <p><strong>Missing Citations:</strong> {{ matrix["Third_pass"]["Missing Citations"] }}</p>
-        <p><strong>Presentation:</strong> {{ matrix["Third_pass"]["Presentation"] }}</p>
-        <p><strong>Support:</strong> {{ matrix["Third_pass"]["Support"] }}</p>
-        <p><strong>Efficacy:</strong> {{ matrix["Third_pass"]["Efficacy"] }}</p>
+        <section class="pass-section">
+          <h2>📙 Third Pass</h2>
+          <ul>
+            <li><strong>Assumptions:</strong> {{ matrix.data["Third_pass"]["Assumptions"] }}</li>
+            <li><strong>Errors:</strong> {{ matrix.data["Third_pass"]["Errors"] }}</li>
+            <li><strong>Missing Citations:</strong> {{ matrix.data["Third_pass"]["Missing Citations"] }}</li>
+            <li><strong>Presentation:</strong> {{ matrix.data["Third_pass"]["Presentation"] }}</li>
+            <li><strong>Support:</strong> {{ matrix.data["Third_pass"]["Support"] }}</li>
+            <li><strong>Efficacy:</strong> {{ matrix.data["Third_pass"]["Efficacy"] }}</li>
+          </ul>
+        </section>
       </div>
     </div>
   {% endfor %}
 </div>
 
-<script>
-  document.querySelectorAll('.matrix-card').forEach(card => {
-    card.addEventListener('click', function () {
-      document.querySelectorAll('.matrix-card').forEach(c => {
-        if (c !== this) {
-          c.classList.remove('active');
-          c.querySelector('.toggle-hint').textContent = "Click to view full details ▼";
-        }
-      });
-
-      this.classList.toggle('active');
-
-      const hint = this.querySelector('.toggle-hint');
-      if (this.classList.contains('active')) {
-        hint.textContent = "Click to hide details ▲";
-      } else {
-        hint.textContent = "Click to view full details ▼";
-      }
-    });
-  });
-</script>
-
+<div id="matrix-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div id="modal-details"></div>
+  </div>
+</div>
 
 {% endblock %}

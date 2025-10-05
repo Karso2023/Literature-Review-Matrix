@@ -12,6 +12,24 @@
   padding: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  position: relative;
+  padding-top: 30px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #cc0000;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 107, 107);
 }
 
 .matrix-card:hover {
@@ -49,4 +67,56 @@
 /* Show details when card is active */
 .matrix-card.active .matrix-details {
   display: block;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 80%;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.pass-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 4px solid #0077cc;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.pass-section h2 {
+  margin-top: 0;
+  font-size: 1.3em;
+  color: #0077cc;
+}
+
+.pass-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.pass-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
 }

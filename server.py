@@ -93,17 +93,32 @@ def submit_info():
 
     return redirect(url_for('saved_matrix'))
 
+# Delete saved matrix
+@app.route('/delete', methods=["POST"])
+def delete():
+    data = request.get_json()
+    matrix_id = data.get("id")
+
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM review_matrix WHERE id = %s", (matrix_id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    
+    print(f"Deleted matrix {matrix_id}")
+    return '', 204
 
 # For saving my review matrix 
 @app.route('/saved_matrix')
 def saved_matrix():
     conn = get_connection()
     cur = conn.cursor()
-    cur.execute("SELECT data FROM review_matrix")
+    cur.execute("SELECT id, data FROM review_matrix")
     rows = cur.fetchall()
     cur.close()
     conn.close()
-    matrices = [row[0] for row in rows]
+    matrices = [{"id": row[0], "data": row[1]} for row in rows]
 
     return render_template("saved_matrix.html", matrices=matrices)
 

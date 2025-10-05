@@ -28,7 +28,7 @@ A web-based literature review matrix using the 3 pass approach
    DB_PORT=your_port
    ```
    
-4. **Run**
+4. **Run** <br/>
    Option 1:
    ```bash
    python server.py

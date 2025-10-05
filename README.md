@@ -31,7 +31,7 @@ A web-based literature review matrix using the 3 pass approach
 4. **Run**
    ```bash
    python server.py
-  ``
+  ```
   You should now be able to run the app on localhost:5000.
   
 

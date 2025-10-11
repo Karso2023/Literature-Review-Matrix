@@ -14,12 +14,17 @@ A web-based literature review matrix using the 3 pass approach
 
 ## 🚀 How to Run Locally
 
-1. **Install dependencies**  
+1. **Venv**
    ```bash
-   python -m pip install -r requirements.txt
+   python -m venv venv
+   ```
+
+2. **Install dependencies**  
+   ```bash
+   python install -r requirements.txt
    ```
    
-2. **Configure your database environment**
+3. **Configure your database environment**
    ```bash
    DB_NAME=your_database_name
    DB_USER=your_username
